@@ -30,13 +30,14 @@ const Contacts = ({ contacts, onDeleteContact, id }) => (
 
 Contacts.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
+  contacts: PropTypes.arrayOf(PropTypes.any).isRequired
+  // contacts: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     id: PropTypes.number.isRequired,
+  //     name: PropTypes.string.isRequired,
+  //     number: PropTypes.string.isRequired,
+  //   })
+  // ),
 };
 const mapDispatchToProps = dispatch => ({
   onDeleteContact: idContact => dispatch(contactsOperations.deleteContact(idContact)),

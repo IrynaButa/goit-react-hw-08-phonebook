@@ -1,35 +1,17 @@
 
-// import React, { useEffect } from 'react';
-// import PropTypes from 'prop-types';
-// import AppBar from './Components/AppBar';
-// import PhoneBook from './Pages/PhoneBook';
-// import HomeView from './Pages/HomePage';
-// import RegisterView from './views/RegisterView';
-// import LoginView from './views/LoginView';
-// import Container from './components/Container';
-// import { authOperations } from './redux/auth/auth-operations';
-
-
-// import { connect } from 'react-redux';
-
-// import  * as contactsOperations from './redux/contacts-operations';
-// import  * as contactsSelectors from './redux/contacts-selectors';
-// import Contacts from "./Components/Contacts/Contacts";
-// import Filter from "./Components/Filter/Filter";
-// import Form from "./Components/Form/Form";
-
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { Component,  Suspense, lazy } from 'react';
+import { Switch} from 'react-router-dom';
 import AppBar from './Components/AppBar';
-import PhoneBook from './Pages/PhoneBook';
-import HomeView from './Pages/HomePage';
-import RegisterView from './Pages/RegisterPage';
-import LoginView from './Pages/LoginPage';
-//import Container from './components/Container';
+
 import PrivateRoute from './Components/PrivateRoute';
 import PublicRoute from './Components/PublicRoute';
 import authOperations from './redux/auth/auth-operations';
 import { connect } from 'react-redux';
+
+const HomeView = lazy(() => import('./Pages/HomePage'));
+const RegisterView = lazy(() => import('./Pages/RegisterPage'));
+const LoginView = lazy(() => import('./Pages/LoginPage'));
+const PhoneBook = lazy(() => import('./Pages/PhoneBook'));
 
 class App extends Component {
   componentDidMount() {
@@ -40,14 +22,15 @@ class App extends Component {
     return (
      <>
         <AppBar />
-      
+        <Suspense fallback={ <p> Please, waiting. We are loading...</p>}>
+          
           <Switch>
           <PublicRoute exact path="/"  component={HomeView} />
           <PublicRoute path="/register"  restricted redirectTo="/contacts" component={RegisterView} />
           <PublicRoute path="/login"  restricted redirectTo="/contacts" component={LoginView} />
           <PrivateRoute path="/contacts" redirectTo="/login" component={PhoneBook} />
         </Switch>
-       
+       </Suspense>
      </>
     );
   }
