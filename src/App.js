@@ -26,7 +26,9 @@ import HomeView from './Pages/HomePage';
 import RegisterView from './Pages/RegisterPage';
 import LoginView from './Pages/LoginPage';
 //import Container from './components/Container';
-import  authOperations  from './redux/auth/auth-operations';
+import PrivateRoute from './Components/PrivateRoute';
+import PublicRoute from './Components/PublicRoute';
+import authOperations from './redux/auth/auth-operations';
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -40,13 +42,12 @@ class App extends Component {
         <AppBar />
       
           <Switch>
-          <Route exact path="/" component={HomeView} />
-          <Route path="/register" component={RegisterView} />
-          <Route path="/login" component={LoginView} />
-          <Route path="/contacts" component={PhoneBook} />
+          <PublicRoute exact path="/"  component={HomeView} />
+          <PublicRoute path="/register"  restricted redirectTo="/contacts" component={RegisterView} />
+          <PublicRoute path="/login"  restricted redirectTo="/contacts" component={LoginView} />
+          <PrivateRoute path="/contacts" redirectTo="/login" component={PhoneBook} />
         </Switch>
        
-        
      </>
     );
   }
@@ -58,49 +59,3 @@ const mapDispatchToProps = {
 
 export default connect(null, mapDispatchToProps)(App);
 
-// const App = ({ filter, items, dispatch, loading }) => {
-//   useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch]);
-//   const normalizedFilter = filter.toLowerCase();
-//   const visibleContacts = items.filter((item) =>
-//       item.name.toLowerCase().includes(normalizedFilter)
-//     );
-//   return (
-//     <div>
-//         <h1>Phonebook</h1>
-//       <Form />
-//       {/* <Form onAddContact={addContact} /> */}
-
-//         <h2>Contacts</h2>
-//          {loading && <h2>Loading...</h2>}
-//       {items[0] ? <Filter /> : <h2 >No contact added </h2>}
-//        {/* <Filter value={filter} onChangeFilter={onChangeFilter} /> */}
-//       {visibleContacts[0] && <Contacts
-//           contacts={visibleContacts}  
-//       />}
-//       {items[0] && !visibleContacts[0] && (
-//           <h2>No contact found </h2>
-//         )}
-
-//       {/* <Contacts
-//           contacts={visibleContacts}
-//           onDeleteContact={deleteContact}
-//         /> */}
-//       </div>
-    
-//   );
-// };
-
-// App.propTypes = {
-//   filter: PropTypes.string.isRequired,
-//   items: PropTypes.arrayOf(PropTypes.any).isRequired,
-//   dispatch: PropTypes.func.isRequired,
-//   loading: PropTypes.bool.isRequired,
-// };
-
-// const mapStateToProps = state => ({
-//   items: contactsSelectors.getAllContacts(state),
-//   filter: contactsSelectors.getFilter(state),
-//   loading: contactsSelectors.getLoading(state),
-// });
-
-// export default connect(mapStateToProps)(App);
