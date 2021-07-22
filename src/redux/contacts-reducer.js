@@ -40,28 +40,14 @@ const filterReducer = createReducer('', {
   [changeFilter]: (_, { payload }) => payload,
 });
 
-//const error = createReducer(null, {});
+const error = createReducer(null, {});
 
 const contactsReducer = combineReducers({
   items: itemsReducer,
   filter: filterReducer,
   loading: loadingReducer,
+  error,
 });
 
-
-// const itemsReducer = createReducer([], {
-//   [addContact]: (state, { payload }) => [...state, payload],
-//   [deleteContact]: (state, { payload }) =>
-//     state.filter(({ id }) => id !== payload),
-// });
-
-// const filterReducer = createReducer('', {
-//   [changeFilter]: (_, { payload }) => payload,
-// });
-
-// const contactsReducer = combineReducers({
-//   items: itemsReducer,
-//   filter: filterReducer,
-// });
 
 export default contactsReducer;
