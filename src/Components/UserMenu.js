@@ -4,6 +4,9 @@ import authOperations from '../redux/auth/auth-operations';
 import authSelectors from '../redux/auth/auth-selectors';
 import defaultAvatar from '../boy-smiling.png';
 
+import Button from '@material-ui/core/Button';
+
+
 const styles = {
   container: {
     display: 'flex',
@@ -12,7 +15,7 @@ const styles = {
   avatar: {
     marginRight: 4,
   },
-  name: {
+  email: {
     fontWeight: 700,
     marginRight: 12,
   },
@@ -23,9 +26,11 @@ const UserMenu = ({ avatar, name, email, onLogout }) => (
     <img src={avatar} alt="" width="32" style={styles.avatar} />
     {/* <span style={styles.name}>Welcome, your majesty {name}</span> */}
     <span style={styles.email}>Welcome, {email}</span>
-    <button type="button" onClick={onLogout}>
-      Logout
-    </button>
+    
+   
+    <Button variant="contained" color="secondary" href="#contained-buttons" type="button" onClick={onLogout}>
+  Logout
+</Button>
   </div>
 );
 const mapStateToProps = state => ({

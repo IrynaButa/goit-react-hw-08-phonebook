@@ -7,6 +7,8 @@ import PrivateRoute from './Components/PrivateRoute';
 import PublicRoute from './Components/PublicRoute';
 import authOperations from './redux/auth/auth-operations';
 import { connect } from 'react-redux';
+import Loader from './Components/Loader/Loader';
+
 
 const HomeView = lazy(() => import('./Pages/HomePage'));
 const RegisterView = lazy(() => import('./Pages/RegisterPage'));
@@ -22,7 +24,7 @@ class App extends Component {
     return (
      <>
         <AppBar />
-        <Suspense fallback={ <p> Please, waiting. We are loading...</p>}>
+        <Suspense fallback={<Loader />}>
           
           <Switch>
           <PublicRoute exact path="/"  component={HomeView} />

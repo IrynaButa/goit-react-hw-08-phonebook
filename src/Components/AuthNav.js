@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const styles = {
   link: {
@@ -22,7 +23,9 @@ const AuthNav = () => (
       style={styles.link}
       activeStyle={styles.activeLink}
     >
-      Register
+       <Button variant="contained" color="primary" href="#contained-buttons">
+  Register
+</Button>
     </NavLink>
     <NavLink
       to="/login"
@@ -30,7 +33,9 @@ const AuthNav = () => (
       style={styles.link}
       activeStyle={styles.activeLink}
     >
-      Log in
+     <Button variant="contained" color="secondary" href="#contained-buttons">
+  Log in
+</Button>
     </NavLink>
   </div>
 );

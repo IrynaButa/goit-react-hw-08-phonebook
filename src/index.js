@@ -8,12 +8,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { ThemeProvider } from '@material-ui/core/styles';
+
+import theme from './theme';
+
 ReactDOM.render(
+   
   <React.StrictMode>
-    <Provider store={store.store}>
+   
+      <Provider store={store.store}>
       <PersistGate loading={null} persistor={store.persistor}>
-      <BrowserRouter>
-        <App />
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+          <App />
+          </ThemeProvider>
       </BrowserRouter>
       </PersistGate>
     </Provider>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import  authOperations  from '../redux/auth/auth-operations';
+import authOperations from '../redux/auth/auth-operations';
+import Button from '@material-ui/core/Button';
 
 const styles = {
   form: {
@@ -36,7 +37,7 @@ class LoginView extends Component {
 
     return (
       <div>
-        <h1>Страница логина</h1>
+        <h1>Log in page</h1>
 
         <form
           onSubmit={this.handleSubmit}
@@ -44,7 +45,7 @@ class LoginView extends Component {
           autoComplete="off"
         >
           <label style={styles.label}>
-            Почта
+            Email
             <input
               type="email"
               name="email"
@@ -54,7 +55,7 @@ class LoginView extends Component {
           </label>
 
           <label style={styles.label}>
-            Пароль
+            Password
             <input
               type="password"
               name="password"
@@ -62,8 +63,13 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label>
-
-          <button type="submit">Войти</button>
+          
+          <Button type="submit" variant="contained" color="secondary" href="#contained-buttons" onClick={this.handleSubmit}>
+ Go
+</Button>
+            
+        
+          
         </form>
       </div>
     );

@@ -8,6 +8,7 @@ import  * as contactsSelectors from '../redux/contacts-selectors';
 import Contacts from "../Components/Contacts/Contacts";
 import Filter from "../Components/Filter/Filter";
 import Form from "../Components/Form/Form";
+import Loader from '../Components/Loader/Loader';
 
 
 const PhoneBook = ({ filter, items, dispatch, loading }) => {
@@ -23,7 +24,7 @@ const PhoneBook = ({ filter, items, dispatch, loading }) => {
       {/* <Form onAddContact={addContact} /> */}
 
         <h2>Contacts</h2>
-         {loading && <h2>Loading...</h2>}
+      {loading && <Loader />}
       {items[0] ? <Filter /> : <h2 >No contact added </h2>}
        {/* <Filter value={filter} onChangeFilter={onChangeFilter} /> */}
       {visibleContacts[0] && <Contacts
