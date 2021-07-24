@@ -2,17 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
 import Button from '@material-ui/core/Button';
+import styles from "./pages.module.css";
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
 
 class LoginView extends Component {
   state = {
@@ -36,15 +27,15 @@ class LoginView extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
+      <div >
         <h1>Log in page</h1>
 
         <form
           onSubmit={this.handleSubmit}
-          style={styles.form}
+          className={styles.form}
           autoComplete="off"
         >
-          <label style={styles.label}>
+          <label className={styles.label}>
             Email
             <input
               type="email"
@@ -54,7 +45,7 @@ class LoginView extends Component {
             />
           </label>
 
-          <label style={styles.label}>
+          <label className={styles.label}>
             Password
             <input
               type="password"

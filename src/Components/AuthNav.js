@@ -21,19 +21,19 @@ const AuthNav = () => (
       to="/register"
       exact
       style={styles.link}
-      activeStyle={styles.activeLink}
-    >
+      activeStyle={styles.activeLink}>
+       
        <Button variant="contained" color="primary" href="#contained-buttons">
   Register
 </Button>
-    </NavLink>
+   </NavLink>
     <NavLink
       to="/login"
       exact
       style={styles.link}
-      activeStyle={styles.activeLink}
-    >
-     <Button variant="contained" color="secondary" href="#contained-buttons">
+      activeStyle={styles.activeLink}>
+      
+     <Button variant="contained" color="secondary" href="#contained-buttons" >
   Log in
 </Button>
     </NavLink>

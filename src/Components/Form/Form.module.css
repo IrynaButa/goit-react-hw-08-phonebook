@@ -5,7 +5,7 @@
   margin-right: auto;
   border-radius: 7px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  background-color: rgb(234, 241, 163);
+  background-color: rgb(227, 231, 181);
 }
 
 .form input {
@@ -15,7 +15,7 @@
   margin-bottom: 15px;
   padding: 7px 15px;
   border-radius: 5px;
-  border: 1px solid rgb(234, 241, 163);
+  border: 1px solid rgb(227, 231, 181);
   text-align: left;
 }
 .form button {
