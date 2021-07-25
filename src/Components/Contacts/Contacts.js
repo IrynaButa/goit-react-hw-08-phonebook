@@ -4,8 +4,8 @@ import styles from "./Contacts.module.css";
 import { connect } from 'react-redux';
 import * as  contactsOperations from '../../redux/contacts-operations';
 import IconButton from "../IconButton/IconButton";
-import { ReactComponent as Delete } from "../icons/trash.svg";
-import { ReactComponent as Phone } from "../icons/phone.svg";
+import { ReactComponent as Delete } from "../../icons/trash.svg";
+import { ReactComponent as Phone } from "../../icons/phone.svg";
 
 
 const Contacts = ({ contacts, onDeleteContact, id }) => (

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import authOperations from '../redux/auth/auth-operations';
+import authOperations from '../../redux/auth/auth-operations';
 import Button from '@material-ui/core/Button';
-import styles from "./pages.module.css";
+import styles from "../pages.module.css";
 
 
 class RegisterView extends Component {

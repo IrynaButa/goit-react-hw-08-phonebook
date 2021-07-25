@@ -22,7 +22,8 @@ import {
 };
 
  export const addContact = ({ name,number}) => dispatch => {
-  const contact = { name, number };
+   const contact = { name, number };
+   
     dispatch(addContactRequest());
     axios
       .post('/contacts', contact)

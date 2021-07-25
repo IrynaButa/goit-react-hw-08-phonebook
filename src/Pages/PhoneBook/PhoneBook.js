@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import  * as contactsOperations from '../redux/contacts-operations';
-import  * as contactsSelectors from '../redux/contacts-selectors';
-import Contacts from "../Components/Contacts/Contacts";
-import Filter from "../Components/Filter/Filter";
-import Form from "../Components/Form/Form";
-import Loader from '../Components/Loader/Loader';
+import  * as contactsOperations from '../../redux/contacts-operations';
+import  * as contactsSelectors from '../../redux/contacts-selectors';
+import Contacts from "../../Components/Contacts/Contacts";
+import Filter from "../../Components/Filter/Filter";
+import Form from "../../Components/Form/Form";
+import Loader from '../../Components/Loader/Loader';
 
 
 const PhoneBook = ({ filter, items, dispatch, loading }) => {

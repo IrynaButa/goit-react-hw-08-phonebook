@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import  * as contactsOperations from '../../redux/contacts-operations';
 import * as contactsSelectors from '../../redux/contacts-selectors';
 //import IconButton from '../IconButton/IconButton';
-import { ReactComponent as Add } from "../icons/add.svg";
+import { ReactComponent as Add } from "../../icons/add.svg";
 
 class Form extends Component {
   state = {
@@ -25,7 +25,12 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    const { name } = this.state;
+    const { items } = this.props;
+ if (items.find((item) => item.name === name)) {
+      alert(`${name} is already exist`);
+      return;
+    }
     this.props.onAddContact(this.state);
 
     this.reset();

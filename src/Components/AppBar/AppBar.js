@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Navigation from './Nav';
-import UserMenu from './UserMenu';
-import AuthNav from './AuthNav';
-import  authSelectors  from '../redux/auth/auth-selectors';
+import Navigation from '../Navigation/Nav';
+import UserMenu from '../UserMenu/UserMenu';
+import AuthNav from '../Navigation/AuthNav';
+import  authSelectors  from '../../redux/auth/auth-selectors';
 
 const styles = {
   header: {

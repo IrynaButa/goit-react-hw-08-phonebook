@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "./pages.module.css";
+import s from "../pages.module.css";
 
 
 const HomeView = () => (

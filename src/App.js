@@ -1,19 +1,20 @@
 
 import React, { Component,  Suspense, lazy } from 'react';
 import { Switch} from 'react-router-dom';
-import AppBar from './Components/AppBar';
+import AppBar from './Components/AppBar/AppBar';
 
-import PrivateRoute from './Components/PrivateRoute';
-import PublicRoute from './Components/PublicRoute';
+import PrivateRoute from './Components/Routes/PrivateRoute';
+import PublicRoute from './Components/Routes/PublicRoute';
 import authOperations from './redux/auth/auth-operations';
 import { connect } from 'react-redux';
 import Loader from './Components/Loader/Loader';
 
 
-const HomeView = lazy(() => import('./Pages/HomePage'));
-const RegisterView = lazy(() => import('./Pages/RegisterPage'));
-const LoginView = lazy(() => import('./Pages/LoginPage'));
-const PhoneBook = lazy(() => import('./Pages/PhoneBook'));
+const HomeView = lazy(() => import('./Pages/HomePage/HomePage'));
+const RegisterView = lazy(() => import('./Pages/RegPage/RegisterPage'));
+const LoginView = lazy(() => import('./Pages/LoginPage/LoginPage'));
+const PhoneBook = lazy(() => import('./Pages/PhoneBook/PhoneBook'));
+
 
 class App extends Component {
   componentDidMount() {
